@@ -1,7 +1,26 @@
 
 public class BankAccount {
+	double balance = 0;
 	
-	public static void main(String[] args) {
-	    // your starting code here
+	public BankAccount(double balance) {
+		super();
+		this.balance = balance;
+	}
+
+
+	private void withdraw(double w) throws NegativeBalanceException{
+		if (w > balance) {
+			throw new NegativeBalanceException(balance-w);
+		} else {
+			balance -= w;
+		}
+	}
+
+	private void quickWithdraw(double w) throws NegativeBalanceException {
+		if (w > balance) {
+			throw new NegativeBalanceException();
+		} else {
+			balance -= w;
+		}
 	}
 }
